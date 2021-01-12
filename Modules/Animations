@@ -1,0 +1,123 @@
+/////////////////////////////////////////////////////////////////////////////////////////////Transition with opacity 
+element
+			z-index: 0;
+			opacity: 0;
+			transition: opacity 0.6s ease;
+element:hover
+			z-index: 8;
+			opacity: 1;
+///////////////////////////////////////////////////////////////////////////////////////////////////////////// Basics
+animation: name duration timing-function delay iteration-count direction;
+  animation-name: example;
+  animation-duration: 5s;
+  animation-timing-function: linear; ease-in-out
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate; normal reverse 
+animation: example 5s linear 2s infinite alternate;
+
+animation-fill-mode forwards backwards both 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////Up and Down
+	.arrows-down
+		i.fa.fa-angle-double-down
+
+ИЛИ
+
+#skipdown.full-page__skip-down
+	<svg width="65" height="57" viewBox="0 0 65 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+	<path d="M28.9298 28.5366L1.42576 9.08797C-0.475254 7.74372 -0.475254 5.57004 1.42576 4.2401L5.99629 1.00819C7.89731 -0.336062 10.9713 -0.336062 12.8521 1.00819L32.3476 14.7939L51.8432 1.00819C53.7442 -0.336062 56.8182 -0.336062 58.699 1.00819L63.3099 4.2258C65.211 5.57004 65.211 7.74372 63.3099 9.07366L35.8059 28.5223C33.9049 29.8809 30.8309 29.8809 28.9298 28.5366ZM35.8059 55.9936L63.3099 36.5449C65.211 35.2007 65.211 33.027 63.3099 31.6971L58.7394 28.4651C56.8384 27.1209 53.7644 27.1209 51.8836 28.4651L32.3679 42.2365L12.8723 28.4508C10.9713 27.1066 7.89731 27.1066 6.01652 28.4508L1.42576 31.6827C-0.475254 33.027 -0.475254 35.2007 1.42576 36.5306L28.9298 55.9793C30.8309 57.3378 33.9049 57.3378 35.8059 55.9936Z" fill="url(#paint0_linear)"/>
+	<defs>
+	<linearGradient id="paint0_linear" x1="32.3679" y1="0" x2="32.3679" y2="57" gradientUnits="userSpaceOnUse">
+	<stop stop-color="#4FB3FF" stop-opacity="0.8"/>
+	<stop offset="0.489583" stop-color="#4FB3FF"/>
+	<stop offset="1" stop-color="#4FB3FF" stop-opacity="0.8"/>
+	</linearGradient>
+	</defs>
+	</svg>
+
+.arrows-down{
+	position: absolute;
+	bottom: 30px;
+	left: 50%;
+	transform: translateX(-50%);
+	-webkit-animation: shake-vertical 1.4s cubic-bezier(0.455, 0.030, 0.515, 0.955) infinite both;
+	animation: shake-vertical 1.4s cubic-bezier(0.455, 0.030, 0.515, 0.955) infinite both;
+}
+
+@keyframes shake-vertical {
+	0%,
+	100% {
+		-webkit-transform: translateY(8px);
+		transform: translateY(8px);
+	}
+	50%
+	{
+		-webkit-transform: translateY(-8px);
+		transform: translateY(-8px);
+	}
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////Ring
+					.tel
+						.tel__icon
+							.tel-img
+							#r1.ring
+							#r2.ring
+							#r3.ring
+
+	.tel {
+		display: flex;
+		flex-direction: row;
+		&__icon {
+			margin-top: 5px;
+			position: relative;
+			.tel-img {
+				display: block;
+				width: 91px;
+				height: 91px;
+				background: url(/img/jeeper/call.svg) center no-repeat;
+			}
+		.ring {
+			position: absolute;
+			width: 90px;
+			height: 90px;
+			top: 0;
+			left: 0;
+			background-color: transparent;
+			border-radius: 50%;
+			border: 1px solid #FFFFFF;
+			animation-name: ring;
+			animation-iteration-count: infinite;
+			animation-timing-function: linear;
+			animation-duration: 3s;
+			}
+		}
+	}
+
+@-webkit-keyframes ring {
+	0% {
+		-webkit-transform: scale(0.3);
+		opacity: 0
+	}
+	1% {
+		-webkit-transform: scale(0.3);
+		opacity: 1
+	}
+	95% {
+		-webkit-transform: scale(1);
+		opacity: 0.4;
+	}
+	100% {
+		-webkit-transform: scale(1);
+		opacity: 0;
+	}
+}
+
+#r2 {
+	-webkit-animation-delay: -1s;
+}
+#r3 {
+	-webkit-animation-delay: -2s;
+}

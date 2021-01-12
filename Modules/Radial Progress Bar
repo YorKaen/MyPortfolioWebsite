@@ -1,0 +1,74 @@
+section.row
+	svg.radial-progress(data-percentage='82' viewbox='0 0 80 80')
+		circle.incomplete(cx='40' cy='40' r='35')
+		circle.complete(cx='40' cy='40' r='35' style='stroke-dashoffset: 39.58406743523136;')
+		text.percentage(x='50%' y='57%' transform='matrix(0, 1, -1, 0, 80, 0)') 82%
+////If in a row
+	svg.radial-progress(data-percentage='33' viewbox='0 0 80 80')
+		circle.incomplete(cx='40' cy='40' r='35')
+		circle.complete(cx='40' cy='40' r='35' style='stroke-dashoffset: 147.3406954533613;')
+		text.percentage(x='50%' y='57%' transform='matrix(0, 1, -1, 0, 80, 0)') 33%
+
+
+
+.row {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 80em;
+	padding: 1em;
+}
+section {
+	text-align: center;
+}
+svg.radial-progress {
+		height: auto;
+		max-width: 200px;
+		padding: 1em;
+		transform: rotate(-90deg);
+		width: 100%;
+}
+svg.radial-progress circle {
+		fill: rgba(0,0,0,0);
+		stroke: #fff;
+		stroke-dashoffset: 219.91148575129; /* Circumference */
+		stroke-width: 10;
+}
+svg.radial-progress circle.incomplete {
+		opacity: 0.25;
+}
+svg.radial-progress circle.complete {
+		stroke-dasharray: 219.91148575129; /* Circumference */
+}
+svg.radial-progress text {
+		fill: #fff;
+		font: 400 1em/1 'Oswald', sans-serif;
+		text-anchor: middle;
+}
+
+$(function(){
+	// Remove svg.radial-progress .complete inline styling
+	$('svg.radial-progress').each(function( index, value ) { 
+			$(this).find($('circle.complete')).removeAttr( 'style' );
+	});
+	// Activate progress animation on scroll
+	$(window).scroll(function(){
+			$('svg.radial-progress').each(function( index, value ) { 
+					// If svg.radial-progress is approximately 25% vertically into the window when scrolling from the top or the bottom
+					if ( 
+							$(window).scrollTop() > $(this).offset().top - ($(window).height() * 0.75) &&
+							$(window).scrollTop() < $(this).offset().top + $(this).height() - ($(window).height() * 0.25)
+					) {
+							// Get percentage of progress
+							percent = $(value).data('percentage');
+							// Get radius of the svg's circle.complete
+							radius = $(this).find($('circle.complete')).attr('r');
+							// Get circumference (2πr)
+							circumference = 2 * Math.PI * radius;
+							// Get stroke-dashoffset value based on the percentage of the circumference
+							strokeDashOffset = circumference - ((percent * circumference) / 100);
+							// Transition progress for 1.25 seconds
+							$(this).find($('circle.complete')).animate({'stroke-dashoffset': strokeDashOffset}, 1250);
+					}
+			});
+	}).trigger('scroll');
+});

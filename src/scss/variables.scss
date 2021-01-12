@@ -1,0 +1,41 @@
+//Variables------------------------------------------------------------
+//Min max width------------------------------------------
+$minWidth: 320px;
+$maxWidth: 1920; // вся ширина макета
+//Max width container----------------------------------------------
+$maxWidthContainer: 1360; // ширина ограничивающего контейнера
+$innerPadding: 15; //внутренний паддинг по бокам
+//Breakpoints----------------------------------------------------------------
+$md1: $maxWidthContainer+$innerPadding*2;
+$md2 : 991.98; //Medium devices (tablets, 768px and up)
+$md3 : 767.98; //Small devices (landscape phones, 576px and up)
+$md4 : 479.98; //Extra small devices (portrait phones, less than 480px)
+$mdmax: $maxWidth;
+//Fonts----------------------------------------------------------------
+$defaultFont:"Exo2";
+//Colours-------------------------------------------------------------
+$back: rgb(0,0,0);
+$mainColor:rgb(158, 0, 255);
+$secondaryColor:rgb(79, 179, 255);
+$text: #ffffff;
+$text60: rgba($text, 0.6);
+
+//Gradients---------------------------------------------------------------
+$grad1:linear-gradient(180deg, rgba(34, 34, 34, 0) 0%, rgba(34, 34, 34, 1) 35%);
+		//
+		/* COLORS 
+		--blue75:rgba(99, 180, 255, 0.75);
+		/// background 
+		--grad-bot: linear-gradient(180deg, rgba(4, 131, 249) 39.6%, rgba(58, 190, 219, 0.5) 87.68%);
+		--grad:linear-gradient(180deg, var(--purple) 0%, var(--blue) 100%);
+
+		/// BOX-SHADOW 
+		--shadow-bot: 0px 4px 4px rgba(0, 0, 0, 0.25);
+		--blue-line: 0px 2px 0px 0px var(--dark-blue);
+		/// text-shadow 
+		--shadow-txt: 0px 4px 4px rgba(0, 0, 0, 0.25);
+		///FONTS 
+		--exo:"Exo2";
+		--quick: "Quicksand";
+		--mont: "Montserrat";
+*/

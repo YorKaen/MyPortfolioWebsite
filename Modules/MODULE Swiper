@@ -1,0 +1,74 @@
+ОШИБКИ
+- swiper ДОЛЖЕН подгружаться последним
+- если комбить как в примере ниже, то высота или длина может выдавать не лучшие результаты, придется переписывать данные свайпера
+.swiper-wrapper{
+		height: auto;
+	}
+- у стрелок тоже самое
+	prev{
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: calc(var(--swiper-navigation-size)/ 44 * 27);
+		height: var(--swiper-navigation-size);
+		margin-top: calc(-1 * var(--swiper-navigation-size)/ 2);
+	}
+	prev:after{
+			content: 'prev';
+			font-family: swiper-icons;
+			letter-spacing: 0;
+			text-transform: none;
+			line-height: 1;}
+	nex:after{
+			content: 'next';}
+
+
+fixer для отображения слайдера с краю (засовывать внутрь)
+
+.container-slider{
+	width: 100%;
+	background-color: #050826;
+	&__fixer{
+		margin: 0 auto;
+		max-width: 2000px;
+	}
+
+//////////////////////////////////////////////////////////////////////////////////////////SWIPER INSTALL
+
+link(rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css")
+
+script(src="https://code.jquery.com/jquery-3.5.1.js", integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" , crossorigin="anonymous")
+script(src="https://unpkg.com/swiper/swiper-bundle.min.js")
+
+	.image-slider.swiper-container
+		h1 Тюнинг джипов и внедорожников
+		.image-slider__wrapper.swiper-wrapper
+			.image-slider__slide.swiper-slide
+				img(src="img/jeeper/1.png", alt="", srcset="")
+			.image-slider__slide.swiper-slide
+				img(src="img/jeeper/2.png", alt="", srcset="")
+			.image-slider__slide.swiper-slide
+				img(src="img/jeeper/3.png", alt="", srcset="")
+		.image-slider__prev.swiper-button-prev
+		.image-slider__next.swiper-button-next
+
+var mySwiper = new Swiper('.image-slider', {
+	loop:true,
+	autoplay: true,
+	speed: 900,
+	navigation: {
+		nextEl: '.image-slider__next',
+		prevEl: '.image-slider__prev',
+	},
+});
+
+.image-slider{
+	padding: 30px 0 70px 0;
+	&__image{
+		text-align:center;
+		img{
+			max-width:100%;
+		}
+	}
+}
