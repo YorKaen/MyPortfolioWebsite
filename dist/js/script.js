@@ -2,6 +2,7 @@ var canShowIntro = true;
 var vh = $( window ).height() + 200;
 
 document.addEventListener('DOMContentLoaded', () => {
+		$('body').css("overflow-y","hidden");
 		function animateSgv (id, delay, delayIncrement){
 				const logo = document.getElementById(id);
 				const logoPaths = document.querySelectorAll(`#${id} path`);
@@ -48,8 +49,8 @@ function showgrid(waitto, howlong){
 	if (canShowIntro == true){
 		canShowIntro = false;
 		gsap.to(".intro_backscreen", {y: -vh, duration: howlong});
-		gsap.from(".main-grid", {y: vh, duration: howlong, ease: "power1.inOut"});
-		gsap.from(".nav", {x: -100, delay: waitto, duration: howlong, ease: "power1.inOut"});
+		gsap.from(".full-page", {y: vh, duration: howlong, ease: "power1.inOut"});
+		//gsap.from(".full-page", {x: -100, delay: waitto, duration: howlong, ease: "power1.inOut"});
 	}
 	else{
 		return;
@@ -60,27 +61,36 @@ function intro(){
 	console.log(vh);
 	console.log("INTRO");
 	gsap.to('#logo-shape', {
-	duration: 2.5,
+	duration: 3.5,
 	delay: 3.8,
 	opacity: 0
 })
 	gsap.to('#logo-purple', {
-	duration: 2.5,
+	duration: 3.5,
 	delay: 6,
 	opacity: 0,
-	onComplete:function(){$('#skipintro').fadeOut(1200);}
+	//onComplete:function(){}
 })
 	gsap.to('#logo-sphynx', {
-	duration: 2.5,
+	duration: 3.5,
 	delay: 7,
 	opacity: 0,
 	onComplete:function()
 	{console.log("FINISH");
 	$('.logo-container').delay(200).fadeOut(2000);
-	$('.intro_backscreen').delay(200).fadeOut(2000);
-	showgrid(2,3);
+	$('.intro_backscreen').delay(1200).fadeOut(2000);
+	allowScroll();
+	//showgrid(2,3);
 	}
 })
+}
+
+function allowScroll(){
+	console.log("allow scroll");
+	setTimeout( function(){
+		$('body').css("overflow-y","visible");
+		console.log("allow scroll complete");
+			},5000);
 }
 
 $("#skipintro").click(function() {
@@ -103,6 +113,17 @@ function redirectIt(obj){
 	window.open(goToLink);
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////
+$(window).on('scroll',
+	function fullscreenSkip(){
+		if (canShowIntro == true){
+			console.log("test1");
+		}
+		else{
+			console.log("test2");
+			$('body').css("overflow-y","visible");
+		}
+	}
+)
 
 $(window).on('scroll',
 	{
@@ -112,7 +133,7 @@ $(window).on('scroll',
 			var currentTop = $(window).scrollTop();
 			//check if user is scrolling up
 			if (currentTop < this.previousTop ) {
-				console.log(currentTop + "текущий < прошлый " + previousTop);
+				//console.log(currentTop + "текущий < прошлый " + previousTop);
 				//if scrolling up...
 				//add class 'is-visible' to the main navigation
 				//if currentTop == 0, remove 'is-fixed' and 'is-visible' classes 

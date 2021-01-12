@@ -5,3 +5,12 @@ a(href='tel:+1234567890') +1234567890
 				a(href="#")
 					img(src="/img/jeeper/654bhfhdgdf.png", alt="", srcset="")
 					p sub4
+
+
+////////////////////////////////////////////////////////////link in new window
+span.span-whatsup(onclick='redirectIt(this)' href='https://wa.me/79080909432/?text=Хотел%20бы%20заказать%20у%20вас%20сайт') WhatsUp
+
+function redirectIt(obj){
+	var goToLink = obj.getAttribute("href");
+	window.open(goToLink);
+}
