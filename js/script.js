@@ -1,5 +1,5 @@
 var canShowIntro = true;
-var canScroll = true;
+var canScroll = false;
 var vh = $( window ).height() + 200;
 
 window.onbeforeunload = function () {
@@ -7,9 +7,7 @@ window.onbeforeunload = function () {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-		//$('body').css("overflow-y","hidden");
 		allowedToScroll();
-		
 		function animateSgv (id, delay, delayIncrement){
 				const logo = document.getElementById(id);
 				const logoPaths = document.querySelectorAll(`#${id} path`);
@@ -103,11 +101,9 @@ function allowScroll(timeout){
 function allowedToScroll(){
 	if (canScroll == true){
 		$('body').css("overflow-y","visible");
-		console.log("scroll allowed");
 	}
 	else{
 		setTimeout(allowedToScroll,1000);
-		console.log("no scroll allowed");
 	}
 }
 //////////////////////////////////////////////////

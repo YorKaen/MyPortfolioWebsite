@@ -517,7 +517,6 @@ body {
   stroke: #4fb3ff;
   stroke-dashoffset: 219.91148575129;
   stroke-dasharray: 5.98 2;
-  /* Circumference */
   stroke-width: 10;
 }
 
@@ -528,7 +527,6 @@ body {
 .next-page svg.radial-progress circle.complete {
   stroke-dasharray: 219.91148575129;
   stroke: #9e00ff;
-  /* Circumference */
 }
 
 .next-page svg.radial-progress text {
