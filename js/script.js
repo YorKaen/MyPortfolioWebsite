@@ -1,8 +1,15 @@
 var canShowIntro = true;
+var canScroll = true;
 var vh = $( window ).height() + 200;
 
+window.onbeforeunload = function () {
+	window.scrollTo(0, 0);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-		$('body').css("overflow-y","hidden");
+		//$('body').css("overflow-y","hidden");
+		allowedToScroll();
+		
 		function animateSgv (id, delay, delayIncrement){
 				const logo = document.getElementById(id);
 				const logoPaths = document.querySelectorAll(`#${id} path`);
@@ -58,8 +65,8 @@ function showgrid(waitto, howlong){
 }
 
 function intro(){
-	console.log(vh);
-	console.log("INTRO");
+	//console.log(vh);
+	//console.log("INTRO");
 	gsap.to('#logo-shape', {
 	duration: 3.5,
 	delay: 3.8,
@@ -76,25 +83,36 @@ function intro(){
 	delay: 7,
 	opacity: 0,
 	onComplete:function()
-	{console.log("FINISH");
+	{
 	$('.logo-container').delay(200).fadeOut(2000);
 	$('.intro_backscreen').delay(1200).fadeOut(2000);
-	allowScroll();
+	allowScroll(5000);
 	//showgrid(2,3);
 	}
 })
 }
-
-function allowScroll(){
-	console.log("allow scroll");
+////////////////////////////////////////////////
+function allowScroll(timeout){
+	//console.log("allow scroll");
 	setTimeout( function(){
-		$('body').css("overflow-y","visible");
-		console.log("allow scroll complete");
-			},5000);
+		canScroll = true;
+		//console.log("allow scroll complete");
+			},timeout);
 }
 
+function allowedToScroll(){
+	if (canScroll == true){
+		$('body').css("overflow-y","visible");
+		console.log("scroll allowed");
+	}
+	else{
+		setTimeout(allowedToScroll,1000);
+		console.log("no scroll allowed");
+	}
+}
+//////////////////////////////////////////////////
 $("#skipintro").click(function() {
-	console.log("pRESSED");
+	//console.log("pRESSED");
 	$('#logo-shape').delay(100).fadeOut(1100);
 	$('#logo-purple').delay(100).fadeOut(1100); 
 	$('#logo-sphynx').delay(100).fadeOut(1100); 
@@ -116,10 +134,10 @@ function redirectIt(obj){
 $(window).on('scroll',
 	function fullscreenSkip(){
 		if (canShowIntro == true){
-			console.log("test1");
+			//console.log("test1");
 		}
 		else{
-			console.log("test2");
+			//console.log("test2");
 			$('body').css("overflow-y","visible");
 		}
 	}
@@ -138,7 +156,7 @@ $(window).on('scroll',
 				//add class 'is-visible' to the main navigation
 				//if currentTop == 0, remove 'is-fixed' and 'is-visible' classes 
 			} else {
-				console.log("scroll down");
+				//console.log("scroll down");
 				//if scrolling down...
 				//add the 'is-fixed' class to the main navigation as soon as it is no longer visible
 				//add class 'is-visible' to the main navigation
