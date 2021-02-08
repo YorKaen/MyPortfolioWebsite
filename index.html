@@ -45,7 +45,7 @@
       -->
     </div>
     <div class="full-page">
-      <div class="container">
+      <div class="container" id="container">
         <div class="fx">
           <div class="fx__line-1"></div>
           <div class="fx__line-2"></div>
@@ -53,12 +53,12 @@
           <div class="fx__line-4"></div>
           <div class="fx__line-5"></div>
         </div>
-        <div class="full-page__avatar"><img src="img/face2 1.png" alt="" srcset=""></div>
-        <div class="full-page__title">
+        <div class="full-page__avatar"><img src="img/face2 1.png" alt=""></div>
+        <div class="full-page__title" id="txtslow">
           <h1></h1>Александр Елкин
           <h3></h3>Web-Developer
         </div>
-        <div class="full-page__subtitle">
+        <div class="full-page__subtitle" id="txt">
           <p>Создание живых, запоминающихся сайтов</p>
           <p></p>Свяжитесь со мной через <span class="span-whatsup" onclick="redirectIt(this)" href="https://wa.me/79080909432/?text=Хотел%20бы%20заказать%20у%20вас%20сайт">WhatsUp</span>, <span class="span-teleg" onclick="redirectIt(this)" href="https://t.me/purplesphynx">Telegram</span>.<br>Мой <span class="span-inst" onclick="redirectIt(this)" href="https://www.instagram.com/purple.sphynx">Instagram </span>и <span class="span-vk" onclick="redirectIt(this)" href="https://vk.com/purple.sphynx">VK</span>. Можете написать мне <span class="span-mail" onclick="redirectIt(this)" href="mailto:yksphynxapps@gmail.com">на почту</span>.
         </div>
@@ -118,23 +118,36 @@
     </div>
     <div class="examples">
       <div class="container">
-        <h3>Недавняя работа</h3>
+        <h3>Примеры</h3>
         <div class="line"></div>
         <div class="examples__container">
           <div class="examples__wrapper">
             <div class="example-1">
-              <div class="jeeper-logo"><img src="img/jeeper/logo.png" alt="" srcset=""></div>
+              <div class="jeeper-logo"><img src="img/jeeper/logo.png" alt=""></div>
               <div class="btn" onclick="redirectIt(this)" href="/index-jeeper.html">
                 <div class="item">
-                  <p>Образец_1</p><svg x="0px" y="0px" width="45" height="30" viewBox="0 0 477.175 477.175" fill="blueviolet" xmlns="http://www.w3.org/2000/svg">
+                  <p>Образец 1</p><svg x="0px" y="0px" width="45" height="30" viewBox="0 0 477.175 477.175" fill="blueviolet" xmlns="http://www.w3.org/2000/svg">
 <path d="M360.731,229.075l-225.1-225.1c-5.3-5.3-13.8-5.3-19.1,0s-5.3,13.8,0,19.1l215.5,215.5l-215.5,215.5c-5.3,5.3-5.3,13.8,0,19.1c2.6,2.6,6.1,4,9.5,4c3.4,0,6.9-1.3,9.5-4l225.1-225.1C365.931,242.875,365.931,234.275,360.731,229.075z"/>
 </svg>
                 </div>
               </div>
               <div class="txt">
                 <p>Рабочий образец титульной страницы сайта каталога.</p>
-                <p>Реализовано - анимации, прокрутка слайдера с Lazy Loading, "свой" курсор, корректно работающее выпадающее меню с затуханиями, анимации элементов сайта при наведении, вкладки кталога, вставка роликов с ютуба и прокрутка новостей (с загрузкой в последнюю очередь), измененная карта Яндекса, корректная клетка с изображениями, правильные цвета, размеры, положение элементов, адаптивность под большие экраны. Все ссылки проставляются автоматически через миксины.</p>
-                <p>Не реализовано - адаптивность под мобильные телефоны и каждое изображение с индивидуальной подписью (в обоих случаях решение простое, но времязатратное).</p>
+                <p>Реализовано - анимации, прокрутка слайдера с Lazy Loading, "свой" курсор, корректно работающее выпадающее меню с затуханиями, анимации элементов сайта при наведении, вкладки каталога, вставка роликов с ютуба и прокрутка новостей (с загрузкой в последнюю очередь), измененная карта Яндекса, корректная клетка с изображениями, правильные цвета, размеры, положение элементов, адаптивность под большие экраны. Все ссылки проставляются автоматически через миксины.</p>
+              </div>
+            </div>
+            <div class="example-2">
+              <div class="artfa-logo"><img src="img/artfa/logo.png" loading="lazy" alt=""></div>
+              <div class="btn" onclick="redirectIt(this)" href="/index-artfa.html">
+                <div class="item">
+                  <p>Образец 2</p><svg x="0px" y="0px" width="45" height="30" viewBox="0 0 477.175 477.175" fill="black" xmlns="http://www.w3.org/2000/svg">
+<path d="M360.731,229.075l-225.1-225.1c-5.3-5.3-13.8-5.3-19.1,0s-5.3,13.8,0,19.1l215.5,215.5l-215.5,215.5c-5.3,5.3-5.3,13.8,0,19.1c2.6,2.6,6.1,4,9.5,4c3.4,0,6.9-1.3,9.5-4l225.1-225.1C365.931,242.875,365.931,234.275,360.731,229.075z"/>
+</svg>
+                </div>
+              </div>
+              <div class="txt">
+                <p>Рабочий образец школы вокала.</p>
+                <p>Реализовано - анимации, прокрутка слайдера с Lazy Loading, "волны" на заднем фоне, таблица с сортировкой и подсветкой при наведении, корректно работающее меню аккордеон внутри вкладок, анимации элементов сайта при наведении, измененная карта Яндекса, корректная клетка с изображениями, правильные цвета, размеры, положение элементов.</p>
               </div>
             </div>
           </div>

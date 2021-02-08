@@ -1,5 +1,7 @@
 var canShowIntro = true;
-var canScroll = false;
+var canScroll = true;
+//var canScroll = false;
+
 var vh = $( window ).height() + 200;
 
 window.onbeforeunload = function () {
@@ -16,12 +18,12 @@ document.addEventListener('DOMContentLoaded', () => {
 						//console.log(logoPaths[i].getTotalLength());
 						logoPaths[i].style.strokeDasharray  = logoPaths[i].getTotalLength();
 						logoPaths[i].style.strokeDashoffset = logoPaths[i].getTotalLength();
-						logoPaths[i].style.animation = `line-anim 3s ease forwards ${delay}s`;
+						logoPaths[i].style.animation = `line-anim 2s ease forwards ${delay}s`;
 						delay+=delayIncrement;
 						//console.log(delay)
 				}
 				
-				logo.style.animation = `fill 3s ease forwards ${delay}s`;
+				logo.style.animation = `fill 2s ease forwards ${delay}s`;
 				//logo.style.animation = `glow 4s ease forwards 8s`;
 		}
 		function animateSgvSlowly (id, delay, delayIncrement){
@@ -32,12 +34,12 @@ document.addEventListener('DOMContentLoaded', () => {
 						//console.log(logoPaths[i].getTotalLength());
 						logoPaths[i].style.strokeDasharray  = logoPaths[i].getTotalLength();
 						logoPaths[i].style.strokeDashoffset = logoPaths[i].getTotalLength();
-						logoPaths[i].style.animation = `line-anim 8s ease forwards ${delay}s`;
+						logoPaths[i].style.animation = `line-anim 4s ease forwards ${delay}s`;
 						delay+=delayIncrement;
 						//console.log(delay)
 				}
 				//logo.style.animation = `fade 4s ease forwards ${delay}s`;
-				logo.style.animation = `glow 14s ease forwards ${delay}s`;
+				logo.style.animation = `glow 5s ease forwards ${delay}s`;
 				
 		}
 		animateSgvSlowly('logo-shape', 0, 0.5)
@@ -82,9 +84,9 @@ function intro(){
 	opacity: 0,
 	onComplete:function()
 	{
-	$('.logo-container').delay(200).fadeOut(2000);
-	$('.intro_backscreen').delay(1200).fadeOut(2000);
-	allowScroll(5000);
+	$('.logo-container').delay(200).fadeOut(1000);
+	$('.intro_backscreen').delay(1200).fadeOut(1000);
+	allowScroll(3000);
 	//showgrid(2,3);
 	}
 })
@@ -195,3 +197,19 @@ $(function(){
 
 
 
+$("#container").mousemove(function(e) {
+	parallaxIt(e, "#txt", -50);
+	parallaxIt(e, "img", -10);
+	parallaxIt(e, "#txtslow", -20);
+});
+
+function parallaxIt(e, target, movement) {
+	var $this = $("#container");
+	var relX = e.pageX - $this.offset().left;
+	var relY = e.pageY - $this.offset().top;
+
+	TweenMax.to(target, 1, {
+		x: (relX - $this.width() / 2) / $this.width() * movement,
+		y: (relY - $this.height() / 2) / $this.height() * movement
+	});
+}

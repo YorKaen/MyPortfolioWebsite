@@ -573,20 +573,12 @@ body {
 
 .examples__container {
   width: 100%;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
 }
 
-.examples__container .example-1 {
-  width: 600px;
-  height: 580px;
+.examples__container .example-1,
+.examples__container .example-2 {
+  width: 250px;
+  height: 250px;
   background-color: rgba(0, 0, 0, 0.4);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -602,18 +594,22 @@ body {
       -ms-flex-align: center;
           align-items: center;
   border: 2px solid transparent;
-  -webkit-transition: all 1.0s ease-in-out;
-  -o-transition: all 1.0s ease-in-out;
-  transition: all 1.0s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  overflow: hidden;
+  position: relative;
 }
 
-.examples__container .example-1 .txt {
+.examples__container .example-1 .txt,
+.examples__container .example-2 .txt {
   height: 0px;
   opacity: 0;
   margin: 16px 12px;
 }
 
-.examples__container .example-1 .btn {
+.examples__container .example-1 .btn,
+.examples__container .example-2 .btn {
   margin: 16px auto 2px;
   height: 0px;
   opacity: 0;
@@ -629,7 +625,8 @@ body {
           align-items: center;
 }
 
-.examples__container .example-1 .btn .item {
+.examples__container .example-1 .btn .item,
+.examples__container .example-2 .btn .item {
   text-decoration: none;
   text-align: center;
   display: -webkit-box;
@@ -649,82 +646,113 @@ body {
   padding: 8px 8px 8px 18px;
 }
 
-.examples__container .example-1 .jeeper-logo {
+.examples__container .example-1 .jeeper-logo,
+.examples__container .example-2 .jeeper-logo,
+.examples__container .example-2 .artfa-logo {
   margin: 2rem;
+  margin-bottom: -2rem;
+  opacity: 1;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  position: absolute;
+  top: 20%;
+  z-index: 99;
+}
+
+.examples__container .example-1 .jeeper-logo img,
+.examples__container .example-2 .jeeper-logo img,
+.examples__container .example-2 .artfa-logo img {
+  width: 200px;
+  height: 100%;
+  -webkit-transform: scale(1.2);
+      -ms-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.examples__container .example-1:hover,
+.examples__container .example-2:hover {
+  width: 500px;
+  height: 380px;
+  border: 2px solid blueviolet;
+}
+
+.examples__container .example-1:hover .txt,
+.examples__container .example-2:hover .txt {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  opacity: 1;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition-delay: 0.4s;
+       -o-transition-delay: 0.4s;
+          transition-delay: 0.4s;
+}
+
+.examples__container .example-1:hover .btn,
+.examples__container .example-2:hover .btn {
+  height: 60px;
+  opacity: 1;
+  -webkit-transition: all 0.8s ease-in-out;
+  -o-transition: all 0.8s ease-in-out;
+  transition: all 0.8s ease-in-out;
+  -webkit-transition-delay: 0.5s;
+       -o-transition-delay: 0.5s;
+          transition-delay: 0.5s;
+  border: 2px solid #9e00ff;
+}
+
+.examples__container .example-1:hover .btn a,
+.examples__container .example-2:hover .btn a {
+  height: 100%;
+  width: 100%;
+  padding: 8px 4px 8px 16px;
+}
+
+.examples__container .example-1:hover .jeeper-logo,
+.examples__container .example-2:hover .jeeper-logo,
+.examples__container .example-1:hover .example-2 .artfa-logo,
+.examples__container .example-2 .example-1:hover .artfa-logo,
+.examples__container .example-2:hover .artfa-logo {
+  top: -40%;
+}
+
+.examples__container .example-2 {
+  background-color: rgba(255, 255, 255, 0.342);
+  color: black;
+}
+
+.examples__container .example-2 .btn {
+  border: 2px solid black;
+}
+
+.examples__container .example-2 .artfa-logo img {
+  -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.examples__container .example-2:hover .btn {
+  border: 2px solid black;
+}
+
+.examples__wrapper {
+  margin: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.examples__container .example-1 .jeeper-logo img {
-  width: 100%;
-  height: auto;
-  -webkit-transform: scale(1.4);
-      -ms-transform: scale(1.4);
-          transform: scale(1.4);
-  -webkit-transition: -webkit-transform 0.3s ease-in-out;
-  transition: -webkit-transform 0.3s ease-in-out;
-  -o-transition: transform 0.3s ease-in-out;
-  transition: transform 0.3s ease-in-out;
-  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
-}
-
-.examples__container .example-1:hover {
-  border: 2px solid blueviolet;
-}
-
-.examples__container .example-1:hover .txt {
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-  opacity: 1;
-  -webkit-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
-  -webkit-transition-delay: 0.2s;
-       -o-transition-delay: 0.2s;
-          transition-delay: 0.2s;
-}
-
-.examples__container .example-1:hover .btn {
-  height: 60px;
-  opacity: 1;
-  -webkit-transition: all 0.8s ease-in-out;
-  -o-transition: all 0.8s ease-in-out;
-  transition: all 0.8s ease-in-out;
-  -webkit-transition-delay: 1s;
-       -o-transition-delay: 1s;
-          transition-delay: 1s;
-  border: 2px solid #9e00ff;
-}
-
-.examples__container .example-1:hover .btn a {
-  height: 100%;
-  width: 100%;
-  padding: 8px 4px 8px 16px;
-}
-
-.examples__container .example-1:hover .jeeper-logo {
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  height: 80px;
-}
-
-.examples__container .example-1:hover .jeeper-logo img {
-  -webkit-transform: scale(0.9);
-      -ms-transform: scale(0.9);
-          transform: scale(0.9);
-}
-
-.examples__wrapper {
-  margin: 20px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 
 .examples h3 {
