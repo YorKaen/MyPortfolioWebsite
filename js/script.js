@@ -1,6 +1,6 @@
 var canShowIntro = true;
-var canScroll = true;
-//var canScroll = false;
+//var canScroll = true;
+var canScroll = false;
 
 var vh = $( window ).height() + 200;
 
