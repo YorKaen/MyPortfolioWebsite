@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 		animateSgvSlowly('logo-shape', 0, 0.5)
 		animateSgv('logo-purple', 1, 0.4)
-		animateSgv('logo-sphynx', 3, 0.4)
+		animateSgv('logo-sphynx', 2, 0.4)
 		intro()
 		//$('#logo-shape').delay(5000).fadeOut(2500);
 		//$('#logo-purple').delay(8000).fadeOut(1500); 
@@ -68,19 +68,19 @@ function intro(){
 	//console.log(vh);
 	//console.log("INTRO");
 	gsap.to('#logo-shape', {
-	duration: 3.5,
-	delay: 3.8,
+	duration: 2.5,
+	delay: 2.8,
 	opacity: 0
 })
 	gsap.to('#logo-purple', {
-	duration: 3.5,
-	delay: 6,
+	duration: 2.5,
+	delay: 5,
 	opacity: 0,
 	//onComplete:function(){}
 })
 	gsap.to('#logo-sphynx', {
-	duration: 3.5,
-	delay: 7,
+	duration: 2.5,
+	delay: 6,
 	opacity: 0,
 	onComplete:function()
 	{
